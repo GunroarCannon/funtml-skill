@@ -1,0 +1,824 @@
+{
+  "meta": {
+    "name": "funtml",
+    "tagline": "Turn any project into a bouncy, sticker-style web page with diagrams and charts.",
+    "theme": "wall",
+    "ticker": [
+      "one html file",
+      "drag the boxes",
+      "springs everywhere",
+      "four looks",
+      "no build tools",
+      "works offline"
+    ],
+    "links": [
+      {
+        "label": "Source on GitHub",
+        "url": "https://github.com/GunroarCannon/funtml-skill"
+      }
+    ],
+    "footer": "Click things. Everything here is clickable on purpose."
+  },
+  "hero": {
+    "subtitle": "You write one small JSON file about your project. funtml draws the page: hero, diagrams that bounce, charts that overshoot, sticker cards.",
+    "stickers": [
+      "JSON in",
+      "HTML out",
+      "no libraries",
+      "phone friendly"
+    ],
+    "cta": [
+      {
+        "label": "How it works",
+        "url": "#how-it-works"
+      },
+      {
+        "label": "See the diagram",
+        "url": "#what-goes-into-what"
+      }
+    ],
+    "mascot": {
+      "shape": "blob",
+      "say": [
+        "Hi, I am the mascot.",
+        "Poke the boxes further down.",
+        "Try the paint button in the menu."
+      ]
+    },
+    "stats": [
+      {
+        "label": "block types",
+        "value": 16
+      },
+      {
+        "label": "looks (themes)",
+        "value": 4
+      },
+      {
+        "label": "lines of engine",
+        "value": 681
+      },
+      {
+        "label": "libraries needed",
+        "value": 0
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "cards",
+      "title": "What you get",
+      "lede": "Everything a project page needs, already styled. You only bring the words and numbers.",
+      "items": [
+        {
+          "title": "Bouncy diagrams",
+          "text": "Boxes spring back when dragged and tug their neighbours. Arrows march and little dots flow along them.",
+          "icon": "network",
+          "tag": "signature"
+        },
+        {
+          "title": "Charts that overshoot",
+          "text": "Bars, lines and donuts grow past their value and settle. Hover for a sticker tooltip.",
+          "icon": "chart"
+        },
+        {
+          "title": "Four looks",
+          "text": "Graffiti wall, school notebook, ink and paper, blueprint. One word in the JSON, or the paint button.",
+          "icon": "paint"
+        },
+        {
+          "title": "Weak-model proof",
+          "text": "A build script fixes the usual mistakes and warns about the rest, so small models still ship a good page.",
+          "icon": "shield"
+        },
+        {
+          "title": "Real facts only",
+          "text": "A scanner reads your repo and fills in file counts, languages and who-imports-who. Nothing is invented.",
+          "icon": "search"
+        },
+        {
+          "title": "One file out",
+          "text": "The result is a single index.html. Host it anywhere, email it, open it offline.",
+          "icon": "box"
+        }
+      ]
+    },
+    {
+      "type": "steps",
+      "title": "Make one in 5 steps",
+      "lede": "This is the whole loop an AI follows.",
+      "items": [
+        {
+          "title": "Scan",
+          "text": "Run `scan_project.py` on the repo to get true numbers and a starter file."
+        },
+        {
+          "title": "Read",
+          "text": "Skim the README and the main files so the words are right."
+        },
+        {
+          "title": "Write",
+          "text": "Fill `project.json`: tagline, cards, steps, notes on each box."
+        },
+        {
+          "title": "Build",
+          "text": "Run `build_site.py`. Fix every ERROR and WARN it prints."
+        },
+        {
+          "title": "Look",
+          "text": "Take a screenshot with `shot.py` and check it with your own eyes."
+        }
+      ]
+    },
+    {
+      "type": "pipeline",
+      "title": "How it works",
+      "lede": "Data flows left to right. Inputs and outputs are shown on each stage.",
+      "steps": [
+        {
+          "label": "Your repo",
+          "note": "Any language.",
+          "icon": "folder",
+          "out": [
+            "files"
+          ]
+        },
+        {
+          "label": "Scanner",
+          "note": "Counts lines, finds imports, reads git.",
+          "icon": "search",
+          "in": [
+            "files"
+          ],
+          "out": [
+            "facts"
+          ]
+        },
+        {
+          "label": "project.json",
+          "note": "Facts plus your words.",
+          "icon": "file",
+          "in": [
+            "facts"
+          ],
+          "out": [
+            "story"
+          ]
+        },
+        {
+          "label": "Builder",
+          "note": "Checks, fixes, inlines everything.",
+          "icon": "gear",
+          "in": [
+            "story"
+          ],
+          "out": [
+            "index.html"
+          ]
+        },
+        {
+          "label": "The page",
+          "note": "Springs, charts, confetti.",
+          "icon": "rocket",
+          "in": [
+            "index.html"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "What goes into what",
+      "lede": "Drag a box and let go. Click one to see what feeds it and where it goes. Click a colour chip to focus a group.",
+      "groups": {
+        "you": {
+          "name": "You write"
+        },
+        "tools": {
+          "name": "Scripts"
+        },
+        "src": {
+          "name": "Page source"
+        },
+        "out": {
+          "name": "Output"
+        }
+      },
+      "nodes": [
+        {
+          "id": "repo",
+          "label": "your project",
+          "group": "you",
+          "icon": "folder",
+          "note": "The thing you want a page about. Any language, any size."
+        },
+        {
+          "id": "scan",
+          "label": "scan_project.py",
+          "group": "tools",
+          "icon": "search",
+          "note": "Counts lines per language and folder, reads imports to find which part uses which, reads README and git history."
+        },
+        {
+          "id": "json",
+          "label": "project.json",
+          "group": "you",
+          "icon": "file",
+          "note": "The only file you edit. Meta, hero and a list of sections. Each section is one block type."
+        },
+        {
+          "id": "build",
+          "label": "build_site.py",
+          "group": "tools",
+          "icon": "gear",
+          "note": "Validates the JSON, repairs small mistakes, removes emoji, and glues the page together."
+        },
+        {
+          "id": "shell",
+          "label": "shell.html",
+          "group": "src",
+          "note": "The empty page: fonts, the data tag, the script tag."
+        },
+        {
+          "id": "css",
+          "label": "style.css",
+          "group": "src",
+          "note": "Four themes as CSS variables, sticker cards, hard shadows, springy easing."
+        },
+        {
+          "id": "engine",
+          "label": "engine.js",
+          "group": "src",
+          "icon": "code",
+          "note": "Draws every block, runs the spring physics for the graph, counts numbers up, throws confetti."
+        },
+        {
+          "id": "out",
+          "label": "index.html",
+          "group": "out",
+          "icon": "box",
+          "note": "One self-contained file. Nothing else to host."
+        },
+        {
+          "id": "you",
+          "label": "a reader",
+          "group": "out",
+          "icon": "smile",
+          "note": "Drags the boxes, clicks the mascot, changes the look."
+        }
+      ],
+      "edges": [
+        {
+          "from": "repo",
+          "to": "scan"
+        },
+        {
+          "from": "scan",
+          "to": "json",
+          "label": "draft"
+        },
+        {
+          "from": "json",
+          "to": "build",
+          "label": "read"
+        },
+        {
+          "from": "shell",
+          "to": "build"
+        },
+        {
+          "from": "css",
+          "to": "build"
+        },
+        {
+          "from": "engine",
+          "to": "build"
+        },
+        {
+          "from": "build",
+          "to": "out",
+          "label": "inline"
+        },
+        {
+          "from": "out",
+          "to": "you"
+        }
+      ]
+    },
+    {
+      "type": "layers",
+      "title": "Block types",
+      "lede": "Sixteen kinds of section. Click a chip to read what it is for.",
+      "layers": [
+        {
+          "name": "Explain",
+          "note": "Words with style",
+          "items": [
+            {
+              "label": "cards",
+              "icon": "layers",
+              "note": "Feature cards with icon, tag and a short text. Best for 3 to 6 items."
+            },
+            {
+              "label": "steps",
+              "icon": "flag",
+              "note": "Numbered how-to. Keep each step to one sentence."
+            },
+            {
+              "label": "text",
+              "icon": "book",
+              "note": "Paragraphs, bullet list and an optional big pull quote."
+            },
+            {
+              "label": "timeline",
+              "icon": "clock",
+              "note": "Dated milestones, alternating left and right."
+            },
+            {
+              "label": "faq",
+              "icon": "chat",
+              "note": "Questions that open with a bounce."
+            }
+          ]
+        },
+        {
+          "name": "Diagram",
+          "note": "How it fits together",
+          "items": [
+            {
+              "label": "graph",
+              "icon": "network",
+              "note": "Draggable bouncy boxes and arrows. Use for what-uses-what."
+            },
+            {
+              "label": "pipeline",
+              "icon": "arrow",
+              "note": "A left-to-right chain with inputs and outputs."
+            },
+            {
+              "label": "layers",
+              "icon": "layers",
+              "note": "Stacked tiers, like this block."
+            },
+            {
+              "label": "tree",
+              "icon": "folder",
+              "note": "Folder structure you can open and close."
+            }
+          ]
+        },
+        {
+          "name": "Numbers",
+          "note": "Charts and counters",
+          "items": [
+            {
+              "label": "stats",
+              "icon": "star",
+              "note": "Big counting-up numbers."
+            },
+            {
+              "label": "bars",
+              "icon": "chart",
+              "note": "Horizontal or vertical bars."
+            },
+            {
+              "label": "line",
+              "icon": "bolt",
+              "note": "One or more series with a hover guide."
+            },
+            {
+              "label": "donut",
+              "icon": "target",
+              "note": "Share of a whole."
+            }
+          ]
+        },
+        {
+          "name": "Show",
+          "note": "Things to look at",
+          "items": [
+            {
+              "label": "code",
+              "icon": "terminal",
+              "note": "A code card with a copy button."
+            },
+            {
+              "label": "table",
+              "icon": "file",
+              "note": "Comparison table."
+            },
+            {
+              "label": "gallery",
+              "icon": "image",
+              "note": "Tilted polaroids for screenshots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "A page, as a mind map",
+      "layout": "force",
+      "flow": false,
+      "lede": "Same block, other layout: no clear direction, so the boxes settle into groups and wobble.",
+      "groups": {
+        "core": {
+          "name": "Always there"
+        },
+        "diagrams": {
+          "name": "Diagrams"
+        },
+        "numbers": {
+          "name": "Numbers"
+        }
+      },
+      "nodes": [
+        {
+          "id": "page",
+          "label": "the page",
+          "group": "core",
+          "icon": "home",
+          "note": "Nav, hero, sections, footer."
+        },
+        {
+          "id": "nav",
+          "label": "menu",
+          "group": "core",
+          "note": "Pills that light up as you scroll, plus the look switcher."
+        },
+        {
+          "id": "hero",
+          "label": "hero",
+          "group": "core",
+          "note": "Bouncy title, stickers, buttons and stats."
+        },
+        {
+          "id": "mascot",
+          "label": "mascot",
+          "group": "core",
+          "icon": "smile",
+          "note": "Eyes follow your pointer. Click to squash and chat."
+        },
+        {
+          "id": "graph",
+          "label": "graph",
+          "group": "diagrams",
+          "icon": "network"
+        },
+        {
+          "id": "pipe",
+          "label": "pipeline",
+          "group": "diagrams"
+        },
+        {
+          "id": "layers",
+          "label": "layers",
+          "group": "diagrams"
+        },
+        {
+          "id": "tree",
+          "label": "tree",
+          "group": "diagrams"
+        },
+        {
+          "id": "bars",
+          "label": "bars",
+          "group": "numbers",
+          "icon": "chart"
+        },
+        {
+          "id": "line",
+          "label": "line",
+          "group": "numbers"
+        },
+        {
+          "id": "donut",
+          "label": "donut",
+          "group": "numbers"
+        },
+        {
+          "id": "stats",
+          "label": "stats",
+          "group": "numbers"
+        }
+      ],
+      "edges": [
+        [
+          "page",
+          "nav"
+        ],
+        [
+          "page",
+          "hero"
+        ],
+        [
+          "hero",
+          "mascot"
+        ],
+        [
+          "page",
+          "graph"
+        ],
+        [
+          "page",
+          "bars"
+        ],
+        [
+          "graph",
+          "pipe"
+        ],
+        [
+          "pipe",
+          "layers"
+        ],
+        [
+          "layers",
+          "tree"
+        ],
+        [
+          "bars",
+          "line"
+        ],
+        [
+          "line",
+          "donut"
+        ],
+        [
+          "donut",
+          "stats"
+        ],
+        [
+          "hero",
+          "stats"
+        ]
+      ]
+    },
+    {
+      "type": "bars",
+      "title": "Where the lines are",
+      "unit": " lines",
+      "lede": "Real counts from this repo's own source.",
+      "items": [
+        {
+          "label": "engine.js",
+          "value": 681
+        },
+        {
+          "label": "style.css",
+          "value": 361
+        },
+        {
+          "label": "build_site.py",
+          "value": 246
+        },
+        {
+          "label": "scan_project.py",
+          "value": 223
+        },
+        {
+          "label": "shot.py",
+          "value": 82
+        },
+        {
+          "label": "shell.html",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "type": "donut",
+      "title": "Share of the code",
+      "centerLabel": "lines",
+      "items": [
+        {
+          "label": "JavaScript",
+          "value": 681
+        },
+        {
+          "label": "CSS",
+          "value": 361
+        },
+        {
+          "label": "Python",
+          "value": 551
+        },
+        {
+          "label": "HTML",
+          "value": 26
+        }
+      ]
+    },
+    {
+      "type": "line",
+      "title": "Sample: how a page grows",
+      "lede": "Made-up numbers, only here to show a line chart. Use real ones in your page.",
+      "area": true,
+      "series": [
+        {
+          "name": "sections",
+          "points": [
+            [
+              "Mon",
+              2
+            ],
+            [
+              "Tue",
+              4
+            ],
+            [
+              "Wed",
+              5
+            ],
+            [
+              "Thu",
+              8
+            ],
+            [
+              "Fri",
+              9
+            ]
+          ]
+        },
+        {
+          "name": "wow",
+          "points": [
+            [
+              "Mon",
+              1
+            ],
+            [
+              "Tue",
+              3
+            ],
+            [
+              "Wed",
+              7
+            ],
+            [
+              "Thu",
+              8
+            ],
+            [
+              "Fri",
+              12
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Roadmap",
+      "items": [
+        {
+          "when": "v1",
+          "title": "Core blocks",
+          "text": "Cards, graph, charts, four looks."
+        },
+        {
+          "when": "next",
+          "title": "More icons",
+          "text": "A bigger icon set and custom SVG per card."
+        },
+        {
+          "when": "later",
+          "title": "Export",
+          "text": "A one-click png of any chart."
+        }
+      ]
+    },
+    {
+      "type": "tree",
+      "title": "Inside the skill",
+      "root": {
+        "name": "funtml/",
+        "children": [
+          {
+            "name": "SKILL.md",
+            "note": "what the AI reads first"
+          },
+          {
+            "name": "scripts/",
+            "note": "scanner, builder, screenshot",
+            "children": [
+              {
+                "name": "scan_project.py"
+              },
+              {
+                "name": "build_site.py"
+              },
+              {
+                "name": "shot.py"
+              }
+            ]
+          },
+          {
+            "name": "src/",
+            "note": "the page source",
+            "children": [
+              {
+                "name": "engine.js"
+              },
+              {
+                "name": "style.css"
+              },
+              {
+                "name": "shell.html"
+              }
+            ]
+          },
+          {
+            "name": "references/",
+            "note": "schema and style rules",
+            "children": [
+              {
+                "name": "schema.md"
+              },
+              {
+                "name": "style-guide.md"
+              }
+            ]
+          },
+          {
+            "name": "examples/",
+            "children": [
+              {
+                "name": "demo.project.json"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "title": "The idea",
+      "body": [
+        "Small models are bad at inventing a good design and good at filling in a form. So the design is **already built**, and the model only fills in the form.",
+        "The form is checked by a script that explains every mistake in plain words."
+      ],
+      "bullets": [
+        "Real numbers come from the scanner.",
+        "Every box has a short label and a longer note.",
+        "Nothing is decorated with emoji."
+      ],
+      "quote": "Design once, fill in forever."
+    },
+    {
+      "type": "table",
+      "title": "Which look?",
+      "columns": [
+        "Look",
+        "Feels like",
+        "Good for"
+      ],
+      "rows": [
+        [
+          "wall",
+          "graffiti wall, sticker cards",
+          "games, communities, loud launches"
+        ],
+        [
+          "notebook",
+          "ruled school paper",
+          "learning, journals, yearbooks"
+        ],
+        [
+          "ink",
+          "black ink on grid paper, yellow accent",
+          "dev tools, clean products"
+        ],
+        [
+          "blueprint",
+          "white lines on deep blue",
+          "systems, infrastructure"
+        ]
+      ]
+    },
+    {
+      "type": "code",
+      "title": "Try it",
+      "filename": "terminal",
+      "code": "python scripts/scan_project.py ./my-project --draft project.json\n# edit project.json: fill in the placeholders\npython scripts/build_site.py project.json index.html\npython scripts/shot.py index.html look.png"
+    },
+    {
+      "type": "faq",
+      "title": "Questions",
+      "items": [
+        {
+          "q": "Does it need internet?",
+          "a": "Only for the Google fonts. Without them it falls back to a system rounded font and still looks fine."
+        },
+        {
+          "q": "Can I use my own colours?",
+          "a": "Set `meta.accent` to any hex colour, and pick one of four themes."
+        },
+        {
+          "q": "Why no emoji?",
+          "a": "They look different on every device. The built-in SVG icons are crisp and match the theme."
+        }
+      ]
+    }
+  ]
+}

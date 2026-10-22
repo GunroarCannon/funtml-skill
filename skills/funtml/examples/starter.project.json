@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "name": "TODO Project name",
+    "tagline": "TODO one sentence: what it is and who it is for",
+    "theme": "wall",
+    "ticker": ["TODO tech 1", "TODO tech 2", "TODO what makes it different"],
+    "links": [{"label": "Source", "url": "https://github.com/TODO/TODO"}]
+  },
+  "hero": {
+    "stickers": ["TODO", "TODO", "TODO"],
+    "cta": [{"label": "How it works", "url": "#how-it-works"}],
+    "mascot": {"shape": "blob"},
+    "stats": [
+      {"label": "TODO real number", "value": 0},
+      {"label": "TODO real number", "value": 0},
+      {"label": "TODO real number", "value": 0}
+    ]
+  },
+  "sections": [
+    {"type": "cards", "title": "What it does", "lede": "TODO one sentence.",
+     "items": [
+       {"title": "TODO", "text": "TODO one or two short sentences.", "icon": "star"},
+       {"title": "TODO", "text": "TODO", "icon": "bolt"},
+       {"title": "TODO", "text": "TODO", "icon": "puzzle"}
+     ]},
+    {"type": "steps", "title": "How to use it",
+     "items": [{"title": "TODO", "text": "TODO"}, {"title": "TODO", "text": "TODO"}, {"title": "TODO", "text": "TODO"}]},
+    {"type": "graph", "title": "What goes into what", "lede": "Drag the boxes. Click one to see what it does.",
+     "groups": {"a": {"name": "TODO group"}, "b": {"name": "TODO group"}},
+     "nodes": [
+       {"id": "one", "label": "TODO", "group": "a", "note": "TODO what this part does."},
+       {"id": "two", "label": "TODO", "group": "a", "note": "TODO"},
+       {"id": "three", "label": "TODO", "group": "b", "note": "TODO"},
+       {"id": "four", "label": "TODO", "group": "b", "note": "TODO"}
+     ],
+     "edges": [{"from": "one", "to": "two"}, {"from": "two", "to": "three"}, {"from": "two", "to": "four"}]},
+    {"type": "bars", "title": "TODO what is being measured", "unit": "",
+     "items": [{"label": "TODO", "value": 1}, {"label": "TODO", "value": 2}, {"label": "TODO", "value": 3}]},
+    {"type": "tree", "title": "The folders",
+     "root": {"name": "TODO/", "children": [{"name": "TODO/", "note": "TODO", "children": [{"name": "TODO"}]}]}},
+    {"type": "code", "title": "Run it", "filename": "terminal", "code": "TODO real commands"},
+    {"type": "faq", "title": "Questions", "items": [{"q": "TODO a question people actually ask?", "a": "TODO"}]}
+  ]
+}
